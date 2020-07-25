@@ -1,0 +1,19 @@
+<div class="buttons-container">
+  <button mat-button (click)='addRow()'>Add Row</button>
+  <button mat-button [disabled]='!selectedRow' color="warn" (click)='deleteRow()'>Delete Row</button>
+</div>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container *ngFor='let col of displayedColumns' [matColumnDef]="col">
+  
+        <th mat-header-cell *matHeaderCellDef> {{(col !== 'select') ? col : ''}} </th>
+        <td mat-cell *matCellDef="let element">
+          <column [columnData]='element' [columnName]='col'></column>
+        </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowSelection(row)" 
+    [class.selected]='row.selected'></tr>
+  </table>
+  
+  <mat-paginator [pageSizeOptions]="[25, 50, 100]" showFirstLastButtons></mat-paginator>
