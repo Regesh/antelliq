@@ -16,6 +16,7 @@ import { AddDataDialogComponent } from './components/add-data-dialog.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
+import { CowDataService } from './services/cow-data.serivce';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {MatInputModule} from '@angular/material/input';
       provide: HTTP_INTERCEPTORS,
       useClass: BackendInterceptor,
       multi: true
-    }
+    },
+    CowDataService
   ],
   bootstrap: [AppComponent]
 })

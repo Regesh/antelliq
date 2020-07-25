@@ -1,6 +1,7 @@
 <div class="buttons-container">
   <button mat-button (click)='addRow()'>Add Row</button>
   <button mat-button [disabled]='!selectedRow' color="warn" (click)='deleteRow()'>Delete Row</button>
+  <span class='comment'>*Click on a column to edit it</span>
 </div>
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container *ngFor='let col of displayedColumns' [matColumnDef]="col">
