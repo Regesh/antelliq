@@ -48,7 +48,7 @@ export class CowTableComponent implements OnInit {
 
   addRow() {
     const dialogRef = this.dialog.open(AddDataDialogComponent, {
-      width: '250px',
+      width: '300px',
       data: {name: this.name, animal: this.animal}
     });
 
